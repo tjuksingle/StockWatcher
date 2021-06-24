@@ -13,7 +13,7 @@ An simple, useful stock watcher windows deskband.
 
 1、必须安装 .NET framework 4.0，默认 Win7 操作系统以上已经安装，无需安装。
 
-2、下载 [https://github.com/mrhuo/StockWatcher/tree/main/app](https://github.com/mrhuo/StockWatcher/tree/main/app) 下的软件。
+2、下载 [https://github.com/tjuksingle/StockWatcher/tree/Ksingle's-main/app/v1.0](https://github.com/tjuksingle/StockWatcher/tree/Ksingle's-main/app/v1.0) 下的软件。
 
 3、在软件保存目录用 **管理员权限** 打开 `cmd.exe`。
 
@@ -82,7 +82,9 @@ C:\>成功: 已终止进程 "explorer.exe"，其 PID 为 2128。
 
 ![screeshots/setting.png](screeshots/setting.png)
 
+3、提醒功能
+
+![screeshots/remind.png](screeshots/remind.png)
 ## 计划
 
-1. 双击盘面时显示整体行情列表。
-2. 加入提醒。
+1. 双击盘面展现更多详情。
