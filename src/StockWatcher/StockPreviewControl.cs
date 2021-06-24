@@ -72,7 +72,7 @@ namespace StockWatcher
                     else
                     {
                         labelForStatus.Tag = stockModel;
-                        UpdateStatus($"{stockModel.Name} {stockModel.CurrentPrice.ToString("F2")}\r\n{stockModel.PricePercent}{(stockModel.IsUp ? "↑" : "↓")}", stockModel.IsUp ? StockColor.Red : StockColor.Green);
+                        UpdateStatus($"{stockModel.Name} {stockModel.CurrentPrice.ToString("F2")}\r\n{stockModel.PricePercent}{"%"}{(stockModel.IsUp ? "↑" : "↓")}{stockModel.PriceOffset}", stockModel.IsUp ? StockColor.Red : StockColor.Green);
                     }
                 });
             }
@@ -143,7 +143,8 @@ namespace StockWatcher
                     Code = code.Substring(code.Length - 6),
                     Name = arr[0],
                     CurrentPrice = float.Parse(arr[1]),
-                    PricePercent = float.Parse(arr[2])
+                    PriceOffset = float.Parse(arr[2]),
+                    PricePercent = float.Parse(arr[3])
                 };
             }
             catch (Exception ex)
@@ -177,8 +178,9 @@ namespace StockWatcher
 
         private void labelForStatus_DoubleClick(object sender, EventArgs e)
         {
-            if (labelForStatus.Tag != null && labelForStatus.Tag is StockModel model)
+            if (labelForStatus.Tag != null && labelForStatus.Tag is StockModel)
             {
+                StockModel model = (StockModel)labelForStatus.Tag;
                 Util.Info(
                     $"代码：{model.Code}\r\n" +
                     $"名称：{model.Name}\r\n" +
@@ -195,6 +197,7 @@ namespace StockWatcher
         public string Name { get; set; }
         public float CurrentPrice { get; set; }
         public float PricePercent { get; set; }
+        public float PriceOffset { get; set; }
         public bool IsUp
         {
             get
