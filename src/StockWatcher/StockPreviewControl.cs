@@ -73,6 +73,15 @@ namespace StockWatcher
                     {
                         labelForStatus.Tag = stockModel;
                         UpdateStatus($"{stockModel.Name} {stockModel.CurrentPrice.ToString("F2")}\r\n{stockModel.PricePercent}{"%"}{(stockModel.IsUp ? "↑" : "↓")}{stockModel.PriceOffset}", stockModel.IsUp ? StockColor.Red : StockColor.Green);
+                        if(stockModel.CurrentPrice<= StockConfig.goDownMentionList[currentIndex])
+                        {
+                            Util.Info($"{stockModel.Name}{"已低于目标价格"}{StockConfig.goDownMentionList[currentIndex]}{"，请留意"}", "到目标价提醒！");
+                            StockConfig.updateGoUpMentionList(currentIndex, stockModel.CurrentPrice * 9.95f);
+                        }
+                        else if(stockModel.CurrentPrice >= StockConfig.goUpMentionList[currentIndex]){
+                            Util.Info($"{stockModel.Name}{"已高于目标价格"}{StockConfig.goUpMentionList[currentIndex]}{"，请留意"}", "到目标价提醒！");
+                            StockConfig.updateGoUpMentionList(currentIndex, stockModel.CurrentPrice*1.05f);
+                        }
                     }
                 });
             }
@@ -185,9 +194,14 @@ namespace StockWatcher
                     $"代码：{model.Code}\r\n" +
                     $"名称：{model.Name}\r\n" +
                     $"现价：{model.CurrentPrice}\r\n" +
-                    $"涨跌：{model.PricePercent}"
+                    $"涨跌：{model.PricePercent}{"%"}"
                 , "查看详情");
             }
+        }
+
+        private void labelForStatus_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
