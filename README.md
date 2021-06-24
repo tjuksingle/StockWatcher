@@ -82,11 +82,8 @@ C:\>成功: 已终止进程 "explorer.exe"，其 PID 为 2128。
 
 ![screeshots/setting.png](screeshots/setting.png)
 
-4、目标股价提醒
-
-![screeshots/remind.png](screeshots/remind.png)
 
 ## 计划
 
 1. 双击盘面时显示整体行情列表。
-2. 加入提醒(待优化)。
+2. 加入提醒。
