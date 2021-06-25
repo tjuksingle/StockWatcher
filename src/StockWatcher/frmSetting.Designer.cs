@@ -78,7 +78,7 @@ namespace StockWatcher
             // 
             // textBoxStockList
             // 
-            this.textBoxStockList.Location = new System.Drawing.Point(11, 95);
+            this.textBoxStockList.Location = new System.Drawing.Point(11, 98);
             this.textBoxStockList.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxStockList.Multiline = true;
             this.textBoxStockList.Name = "textBoxStockList";
@@ -87,7 +87,7 @@ namespace StockWatcher
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(192, 275);
+            this.buttonSave.Location = new System.Drawing.Point(192, 279);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(85, 30);
@@ -98,7 +98,7 @@ namespace StockWatcher
             // 
             // goDownMentionList
             // 
-            this.goDownMentionList.Location = new System.Drawing.Point(114, 95);
+            this.goDownMentionList.Location = new System.Drawing.Point(114, 98);
             this.goDownMentionList.Margin = new System.Windows.Forms.Padding(2);
             this.goDownMentionList.Multiline = true;
             this.goDownMentionList.Name = "goDownMentionList";
@@ -107,7 +107,7 @@ namespace StockWatcher
             // 
             // goUpMentionList
             // 
-            this.goUpMentionList.Location = new System.Drawing.Point(197, 95);
+            this.goUpMentionList.Location = new System.Drawing.Point(197, 98);
             this.goUpMentionList.Margin = new System.Windows.Forms.Padding(2);
             this.goUpMentionList.Multiline = true;
             this.goUpMentionList.Name = "goUpMentionList";
@@ -148,7 +148,7 @@ namespace StockWatcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 314);
+            this.ClientSize = new System.Drawing.Size(291, 320);
             this.Controls.Add(this.upSideTarget);
             this.Controls.Add(this.downSideTarget);
             this.Controls.Add(this.stockCodeLabel);

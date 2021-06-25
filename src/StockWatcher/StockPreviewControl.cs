@@ -73,14 +73,18 @@ namespace StockWatcher
                     {
                         labelForStatus.Tag = stockModel;
                         UpdateStatus($"{stockModel.Name} {stockModel.CurrentPrice.ToString("F2")}\r\n{stockModel.PricePercent}{"%"}{(stockModel.IsUp ? "↑" : "↓")}{stockModel.PriceOffset}", stockModel.IsUp ? StockColor.Red : StockColor.Green);
-                        if(stockModel.CurrentPrice<= StockConfig.goDownMentionList[currentIndex])
+                        if (stockModel.IsLegal)
                         {
-                            Util.Info($"{stockModel.Name}{"已低于目标价格"}{StockConfig.goDownMentionList[currentIndex]}{"，请留意"}", "到目标价提醒！");
-                            StockConfig.updateGoUpMentionList(currentIndex, stockModel.CurrentPrice * 9.95f);
-                        }
-                        else if(stockModel.CurrentPrice >= StockConfig.goUpMentionList[currentIndex]){
-                            Util.Info($"{stockModel.Name}{"已高于目标价格"}{StockConfig.goUpMentionList[currentIndex]}{"，请留意"}", "到目标价提醒！");
-                            StockConfig.updateGoUpMentionList(currentIndex, stockModel.CurrentPrice*1.05f);
+                            if (stockModel.CurrentPrice <= StockConfig.goDownMentionList[currentIndex])
+                            {
+                                StockConfig.updateGoUpMentionList(currentIndex, stockModel.CurrentPrice * 9.95f);
+                                Util.Info($"{stockModel.Name}{"已低于目标价格，现价："}{StockConfig.goDownMentionList[currentIndex]}{"，请留意！"}", "到目标价提醒！");
+                            }
+                            else if (stockModel.CurrentPrice >= StockConfig.goUpMentionList[currentIndex])
+                            {
+                                StockConfig.updateGoUpMentionList(currentIndex, stockModel.CurrentPrice * 1.05f);
+                                Util.Info($"{stockModel.Name}{"已高于目标价格，现价："}{StockConfig.goUpMentionList[currentIndex]}{"，请留意！"}", "到目标价提醒！");
+                            }
                         }
                     }
                 });
@@ -217,6 +221,13 @@ namespace StockWatcher
             get
             {
                 return PricePercent > 0;
+            }
+        }
+        public bool IsLegal
+        {
+            get
+            {
+                return CurrentPrice > 0;
             }
         }
     }
