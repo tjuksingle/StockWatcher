@@ -77,7 +77,7 @@ namespace StockWatcher
                         {
                             if (stockModel.CurrentPrice <= StockConfig.goDownMentionList[currentIndex])
                             {
-                                StockConfig.updateGoUpMentionList(currentIndex, stockModel.CurrentPrice * 9.95f);
+                                StockConfig.updateGoDownMentionList(currentIndex, stockModel.CurrentPrice * 0.95f);
                                 Util.Info($"{stockModel.Name}{"已低于目标价格，现价："}{StockConfig.goDownMentionList[currentIndex]}{"，请留意！"}", "到目标价提醒！");
                             }
                             else if (stockModel.CurrentPrice >= StockConfig.goUpMentionList[currentIndex])
